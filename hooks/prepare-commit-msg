@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Assumes https://github.com/quiram/bash-utils is installed
+
+# Extract the current branch name
+BRANCH_NAME=$(branch-name)
+
+# Identify the JIRA ticket number from the branch name
+JIRA_TICKET=$(echo "$BRANCH_NAME" | grep -oE '[A-Z]+-[0-9]+' | sed -e s/'[[:alpha:]/]*\/'//)
+
+# Prepend the JIRA ticket to the commit message if found
+if [ -n "$JIRA_TICKET" ]; then
+    COMMIT_MSG=$(cat "$1")
+    echo "$JIRA_TICKET $COMMIT_MSG" > "$1"
+fi
+
