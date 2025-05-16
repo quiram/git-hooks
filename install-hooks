@@ -1,0 +1,13 @@
+#!/bin/bash
+
+BUILD_SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+templates_dir="$HOME/.git-templates"
+hooks_dir="${templates_dir}/hooks"
+
+if [ ! -d "$hooks_dir" ]; then
+  mkdir -p "$hooks_dir"
+fi
+
+cp -i "${BUILD_SCRIPTS_DIR}"/hooks/* "${hooks_dir}"
+git config --global init.templateDir "${templates_dir}"
