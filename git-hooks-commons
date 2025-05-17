@@ -1,0 +1,4 @@
+#!/bin/bash
+
+templates_dir="$HOME/.git-templates"
+hooks_dir="${templates_dir}/hooks"

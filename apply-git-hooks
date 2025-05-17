@@ -1,0 +1,22 @@
+#!/bin/bash
+
+BUILD_SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "${BUILD_SCRIPTS_DIR}"/git-hooks-commons
+
+usage_and_exit() {
+  echo "$0 <development_dir>"
+  echo "    Installs all existing hooks in the template into all the repos directly under <development_dir>"
+  exit 1
+}
+
+development_dir=$1
+
+# shellcheck disable=SC2015
+[ -n "${development_dir}" ] && [ -d "${development_dir}" ] || usage_and_exit
+
+for repo in "${development_dir}"/*/; do
+  if [ -d "${repo}".git ]; then
+    # shellcheck disable=SC2154
+    cp -i "${hooks_dir}"/* "${repo}".git/hooks
+  fi
+done
