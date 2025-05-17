@@ -1,4 +1,4 @@
 #!/bin/bash
 
-templates_dir="$HOME/.git-templates"
-hooks_dir="${templates_dir}/hooks"
+export templates_dir="$HOME/.git-templates"
+export hooks_dir="${templates_dir}/hooks"
