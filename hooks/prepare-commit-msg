@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Assumes https://github.com/quiram/bash-utils is installed
+# Adapted from https://armen-mkrtchian.medium.com/automatically-add-jira-ticket-numbers-to-git-commits-a-step-by-step-guide-githook-b52ace18c6a5
 
 # Extract the current branch name
 BRANCH_NAME=$(branch-name)
