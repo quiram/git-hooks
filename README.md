@@ -13,5 +13,5 @@ cd git-hooks
 ```
 
 ## Hooks
-`prepare-commit-msg`
+### `prepare-commit-msg`
 If the branch name matches a JIRA ticket pattern (e.g. `JIRA-123` or `feature/JIRA-456` or `bug/amarinpe/JIRA-789`), the jira ticket will be appended to the commit message.
